@@ -1,0 +1,15 @@
+what if you want to run as many containers you need with a single command 
+and run them as a seperate services by runing them in different group of networks and
+communicate with each other?
+
+
+docker compose docker-compose.yml up
+docker compose docker-compose.yml down
+
+docker compose docker-compose.yml build --no-cache
+
+curl from one of the container to another with service name (communication)
+curl http://flask-app1:8088
+
+docker logs containername
+docker inspect 

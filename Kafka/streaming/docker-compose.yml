@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  consumer:
+    build: ./consumer
+    container_name: kafka_consumer-basic
+    depends_on:
+      - producer
+    ports: ['5000:5000']
+    volumes: ['./consumer:/usr/app']
+    command: ["tail", "-f", "/dev/null"]
+    # command: ["/bin/bash", "./start_script.sh"]
+
+
+  producer:
+    build: ./producer
+    container_name: kafka_producer-basic
+    volumes: ['./producer:/usr/app']
+    command: ["tail", "-f", "/dev/null"]
+
+networks:
+  default:
+    # kafka-network to enable communication between the Kafka cluster and the apps:
+    name: kafka-network  
+    external: true

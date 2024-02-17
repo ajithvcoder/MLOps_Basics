@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+
+  client-app1:
+    build: ./basic
+    container_name: client-app
+    depends_on:
+      - mongodb
+    ports: ['5000:5000']
+    volumes: ['./basic:/home']
+    command: ["tail", "-f", "/dev/null"]
+
+  mongodb:
+    image: mongo:latest
+    hostname: mongodb_connect
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    ports:
+      - 27017:27017

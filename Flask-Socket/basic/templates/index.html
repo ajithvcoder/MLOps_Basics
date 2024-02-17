@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask-SocketIO Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js" integrity="sha384-AoYONw5mqdJpH3ct5k8L6yq5qzcg/OhSUFXXptQgE9PO2gNpRZc1Mh6tNzkz9ByP" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('server_message', function(msg) {
+            console.log('Received message from server:', msg);
+            document.getElementById('message').innerText = msg.data;
+        });
+    </script>
+</head>
+<body>
+    <h1> Flask-SocketIO Example </h1>
+    <h1 id="message">Time</h1>
+</body>
+</html>
