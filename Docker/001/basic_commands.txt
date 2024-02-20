@@ -9,6 +9,3 @@ docker exec -it fc78ec30e1a5 bash
 
 apt update
 apt install python3
-
-a basic python program
-

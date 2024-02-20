@@ -3,17 +3,22 @@ from flask import Flask, render_template, Response
 
 app = Flask(__name__)
 
-# Initialize Kafka consumer
-c = Consumer({
-    'bootstrap.servers': 'broker:29092',
-    'group.id': 'mygroup',
+# Kafka broker configuration
+bootstrap_servers = 'broker:29092'
+topic = 'url_stream_topic'
+
+# Kafka consumer configuration
+consumer_conf = {
+    'bootstrap.servers': bootstrap_servers,
+    'group.id': 'image_consumer_group3',
     'auto.offset.reset': 'earliest'
-})
-c.subscribe(['url_stream_topic'])
+}
 
 def generate_video():
+    consumer = Consumer(consumer_conf)
+    consumer.subscribe([topic])
     while True:
-        msg = c.poll(1.0)
+        msg = consumer.poll(1.0)
 
         if msg is None:
             continue
@@ -34,4 +39,4 @@ if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
 
 # Close the Kafka consumer when the Flask app is terminated
-c.close()
+# c.close()

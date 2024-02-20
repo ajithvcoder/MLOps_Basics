@@ -1,8 +1,16 @@
-When we can stream video with flask itself why do we need flask-sockerio
+### Flask-Socket IO
 
-Real-time Bidirectional Communication
-Lower Latency
-Efficient Data Transfer
-Scalability
+- When we can stream video with flask itself why do we need flask-socketio
 
-run normally without docker 
+    Real-time Bidirectional Communication
+    Lower Latency
+    Efficient Data Transfer
+    Scalability
+
+Run normally without docker 
+
+conda env name - trainingpipeline
+
+**Usage**
+
+- python app.py

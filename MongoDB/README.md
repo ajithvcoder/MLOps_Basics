@@ -18,3 +18,16 @@ what is collections ?
 - a collection is a grouping of MongoDB documents
 
 Try basic CREAD operation for basic understanding
+
+**Usage**
+
+docker compose -f docker-compose.yml up
+
+#Get inside client container and do basic operations
+docker exec -it 97f2856d7ac3 bash 
+
+- python insert.py
+- python read.py
+- python edit.py
+- python delete.py
+

@@ -8,8 +8,3 @@ docker compose docker-compose.yml down
 
 docker compose docker-compose.yml build --no-cache
 
-curl from one of the container to another with service name (communication)
-curl http://flask-app1:8088
-
-docker logs containername
-docker inspect 

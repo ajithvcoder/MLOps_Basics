@@ -6,7 +6,7 @@ WORKDIR /usr/app
 #   apt-get install -y net-tools
 
 RUN apt-get update -y
-
+RUN apt install ffmpeg libsm6 libxext6  -y
 ADD ./requirements.txt ./
 
 RUN pip3 install  -r requirements.txt

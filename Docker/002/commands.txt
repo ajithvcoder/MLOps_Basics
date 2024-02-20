@@ -1,9 +1,4 @@
  https://hub.docker.com/_/python/tags
 
 docker build -t flask-app .
-
-
-Why 0.0.0.0 in docker not 127.0.0.1 ?
-
-127.0.0.1: "Keep it inside my computer, don't let anyone else in."
-0.0.0.0: "Open the doors to the world, let others connect to me."
+docker run -p 8085:8085 flask-app 

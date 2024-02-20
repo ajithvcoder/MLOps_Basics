@@ -32,4 +32,6 @@ Cross-platform Support: GitHub Actions supports a wide range of operating system
 
 ## Basic:
 
+Note: Do it in a separate clean folder and repo as you are already inside a github repo.
+
 https://github.com/ajithvcoder/basic_githubactions

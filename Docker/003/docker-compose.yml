@@ -6,14 +6,12 @@ services:
     build:
       context: ./app1
     ports:
-      - "8088:8088"  # Map the Flask app's port to the host
+      - "8085:8085"
     depends_on:
-      - flask-app2  # Ensure that the app2 is started before app1
-
+      - flask-app2
   flask-app2:
     image: app2_image
     build:
       context: ./app2
     ports:
-      - "8089:8089"  # Map the Flask app's port to the host
-
+      - "8086:8086"
