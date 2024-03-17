@@ -43,6 +43,9 @@ def stopServer():
 @cross_origin()
 def trainRoute():
     os.system("dvc repro")
+    os.system("torchserve --stop")
+    os.system("torch-model-archiver -f --model-name spaceship --version 1.0 --serialized-file torchserve/models/spaceship.onnx --export-path torchserve/model-store --handler torchserve/handler.py --extra-files torchserve/utils/encoder_traindata.pickle -f")
+    os.system("torchserve --start --ncs --model-store torchserve/model-store --models spaceship=spaceship.mar")
     logger.info("Training done successfully!")
     return "Training done successfully!"
 

@@ -17,7 +17,7 @@ Not-only-Sql
 what is collections ?
 - a collection is a grouping of MongoDB documents
 
-Try basic CREAD operation for basic understanding
+Try basic CRED operation for basic understanding
 
 **Usage**
 

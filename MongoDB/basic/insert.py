@@ -14,7 +14,7 @@ print("connected with db")
 
 # Access a collection
 collection = db['mycollection']
-
+collection.create_index([('name')], unique=True)
 # Insert a single document
 data = {'name': 'John', 'age': 30, 'city': 'New York'}
 inserted_document = collection.insert_one(data)

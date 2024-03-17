@@ -1,5 +1,19 @@
 ## Kafka Basic
 
+what is poll in kafka producer
+.poll(0): The method poll is invoked with an argument of 0. This argument specifies the maximum amount of time 
+(in seconds) the call will block waiting for event callbacks. A value of 0 means the call is non-blocking; 
+it will check for any available callbacks to trigger (such as delivery reports) and return immediately.
+
+
+
+What is poll in kafka consumer
+
+The poll method is used to fetch records from Kafka. The argument passed to poll is a timeout value in seconds, indicating how long the poll call will block if data is not immediately available in the buffer. If this timeout expires without any new data, poll will return None (or an empty list, depending on the client library).
+
+1.0 as the argument specifies that the consumer will wait up to 1 second for new data to become available.
+
+
 For clean build
 
 ```docker compose -f docker-compose.yml build --no-cache```
@@ -50,3 +64,5 @@ you can create more servers, more topics, more producers, more consumers , your 
 
     docker compose -f kafka-server\\docker-compose.yml down
     docker compose -f docker-compose.yml down
+
+    GO to http://localhost:5000/video_feed url

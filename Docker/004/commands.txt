@@ -1,7 +1,9 @@
+if you want to create two seperate containers without compose and communicate with each other 
+
 docker run -d --name=my_container your_image_name:tag
 
-docker build -t app1
-docker build -t app2
+docker build -t app1 .
+docker build -t app2 .
 
 docker network create my_network
 
@@ -9,3 +11,5 @@ docker run -d --name=myapp1 -p 8085:8085 --network=my_network app1
 docker run -d --name=myapp2 -p 8086:8086 --network=my_network app2
 
 apt-get install curl
+
+curl http://myapp1:8085/

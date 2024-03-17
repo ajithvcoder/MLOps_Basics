@@ -2,7 +2,15 @@
 
 001 - In flask itself you can inference if you have a model why torchserve ?
 
-docker run -it flask-torch-001 .
+run the docker earlier itself 
+
+<-- docker build -t flask-001 . --> dont run this instead for this alonge go from next step as its time consumming
+
+docker run -p 8085:8085 -v "<hostpath>":/app -it flask-001  bash
+
+docker run -p 8085:8085 -v "C:\Users\MCW\Documents\Ajith\mcw_interns_3\Torchserve\001":/app -it flask-001  bash
+
+docker exec -it b2948b8e5114 bash
 
 copy files from Torchserve/001/ to docker
 
@@ -19,9 +27,10 @@ CPU Average response time: 0.2689952802658081 seconds - 1000 runs
 
 https://github.com/ultralytics/ultralytics/issues/493#issuecomment-1784328169
 
-docker build -t torchserve-002 .
+<!-- docker build -t torchserve-002 . -->
 
-docker run -it torchserve-002 bash
+docker run -v "<hostpath>":/usr/app -it torchserve-002 bash
+docker run -v "C:\Users\MCW\Documents\Ajith\mcw_interns_3\Torchserve\002":/usr/app -it torchserve-002 bash
 
 mkdir model-store
 
@@ -37,6 +46,9 @@ The response time is just a sequential run torchserve will perform better than f
 
 # 003 - Torch serve with onnx 
 
+<!-- docker build -t torchserve-003 . -->
+docker run -v "C:\Users\MCW\Documents\Ajith\mcw_interns_3\Torchserve\003":/usr/app -p 8080:8080 -p 8081:8081 -p 8083:8083 -it torchserve-003 bash
+
 - torch-model-archiver -f --model-name yolov8n --version 1.0 --serialized-file models/yolov8n.onnx --export-path model-store --handler custom-handler.py
 
 - torchserve --start --ncs --model-store model-store --models yolov8n=yolov8n.mar --ts-config config.properties
@@ -45,4 +57,5 @@ Average response time: 0.32311110734939574 seconds
 
 Onnx should be faster than torch usually need to check on it.
 
-Todo: check the output of torchserve 001,002,003
+TODO: show how to access 8081 and 8082
+http://localhost:8081/models

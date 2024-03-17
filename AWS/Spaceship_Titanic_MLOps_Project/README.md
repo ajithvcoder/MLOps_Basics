@@ -9,8 +9,29 @@ Continous Integration: code commits pushes , reviews
 Continuous Delivery: ensures that code is always in a deployable state,  with automated testing
 Continuous Deployment : deployment to production.
 
+
+## Note Use the same code base - 
+- change the db settings alone and test locally , 
+- Added torch code and flask code additionally 
+- test it locally then deploy to AWS
+Initate git and set git url 
+initiate docker . dont run in same environment 
+
+docker build -t spaceship_pro_1 .
+600 - 1000 seconds to build 
+docker run -p 8085:8085 spaceship_pro_1 
+# docker exec -it 15e539e58a68  bash
+so its able to run properly in a docker env 
+url/train - even if you change the database model will be generated with latest data
+
+now push to git in separate repo
+
+it would cost you around 30 ruppes u need to pay at month end to AWS if you are going to proceed further
+now go to aws 
+
+
 ## AWS
-1. Create a iam user with following policies
+1. Create a iam user with following policies -> Attach policis directly
 
     a. AmazonEC2ContainerRegistryFullAccess
 
@@ -24,6 +45,7 @@ Continuous Deployment : deployment to production.
 
 ### Go to EC2
 - create keyvalue pair if u want to access through putty.
+t2.xlarge - select
 Allow HTTP and HTTPs traffic
 
 ### Install docker
@@ -56,11 +78,16 @@ AWS_REGION = us-east-1
 
 AWS_ECR_LOGIN_URI = only till .com
 
-ECR_REPOSITORY_NAME = nameofrepo
+ECR_REPOSITORY_NAME = nameof ECR repo
 
 IN EC2:
 change inbound rules for 8085 port
 access http://54.204.114.208:8085/
+
+http://localhost:8081/models/my_model
+http://localhost:8080/predictions/my_model
+
+**NOTE : Terminate the instance, delete ECR repo, delete IAM user**
 
 References:
 - Krish Naik Videos
